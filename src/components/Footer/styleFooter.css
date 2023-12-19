@@ -1,0 +1,28 @@
+footer{
+    display: flex;
+    padding: 60px 0px;
+    justify-content: space-between;
+}
+
+footer h3{
+    margin-bottom: 10px;
+}
+
+.logo-footer{
+    text-align: center;
+    font-size: 30px;
+    color: var(--cor-verde);
+}
+
+footer a {
+    color: gray;
+}
+
+/* .mapa-site{
+    flex: 1;
+} */
+
+
+/* .rede-sociais{
+    flex:1;
+} */

@@ -1,0 +1,407 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+*::-webkit-scrollbar {
+  width: 16px;
+}
+
+*::-webkit-scrollbar-track {
+  border-radius: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  height: 56px;
+  border-radius: 8px;
+  border: 4px solid transparent;
+  background-clip: content-box;
+  background-color: #888;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+@media (max-width: 1250px) {
+  .conteiner {
+    max-width: 1100px;
+    margin: 0 auto;
+    /* background-color: red; */
+  }
+}
+
+@media (max-width: 1150px) {
+  .conteiner {
+    max-width: 900px;
+    margin: 0 auto;
+    /* background-color: blue; */
+  }
+
+  .actions-menu-header {
+    display: flex;
+    margin: 0 auto;
+    gap: 0px;
+    margin-right: 25px;
+  }
+
+  .menu-lista {
+    position: absolute;
+    top: 100px;
+    background-color: #d4d4d8;
+    width: 400px;
+    height: 0px;
+    right: 0px;
+    display: flex;
+    visibility: hidden;
+    /* align-items: center;
+    justify-content: center; */
+    flex-direction: column;
+    transition: .6s;
+    overflow-y: hidden;
+    z-index: 500;
+  }
+
+  .box-header ul {
+    gap: 0px;
+  }
+
+  .menu.ativo .menu-lista {
+    visibility: visible;
+    height: 100vh;
+    overflow-y: hidden;
+  }
+
+  .menu-lista ul {
+    flex-direction: column;
+    text-align: center;
+    align-self: flex-start;
+    font-size: 20px;
+    width: 100%;
+  }
+
+  .menu-lista ul li a {
+    color: black;
+    transition: .3s;
+  }
+
+  .menu-lista ul li {
+    cursor: pointer;
+    padding: 40px;
+  }
+
+  .menu {
+    order: -1;
+  }
+
+  .menu.ativo {
+    padding: 0px;
+  }
+
+  .menu.ativo ul {
+    gap: 0px;
+  }
+
+  .menu.ativo ul li {
+    padding: 40px;
+  }
+
+  #btn-mobile {
+    display: block;
+    cursor: pointer;
+    border: none;
+    width: 25px;
+    height: 20px;
+    background: none;
+    position: relative;
+  }
+
+  .hamburger {
+    position: absolute;
+    top: 0px;
+    width: 25px;
+    height: 2px;
+    display: block;
+    border-top: 2px solid black;
+  }
+
+  .hamburger::after,
+  .hamburger::before {
+    position: absolute;
+    content: "";
+    display: block;
+    background-color: black;
+    width: 25px;
+    height: 2px;
+    transition: .3s;
+  }
+
+  .hamburger::after {
+    top: 7px;
+
+  }
+
+  .hamburger::before {
+    top: 17px;
+  }
+
+  .menu.ativo .hamburger {
+    border-top-color: transparent;
+  }
+
+  .menu.ativo .hamburger::after {
+    transform: rotate(-135deg);
+    top: 5px;
+  }
+
+  .menu.ativo .hamburger::before {
+    transform: rotate(135deg);
+    top: 5px;
+  }
+
+  .banner-texto {
+    max-width: 100%;
+    align-items: center;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .banner {
+    height: 80vh;
+  }
+
+  .img-content {
+    width: 500px;
+  }
+
+  #best-cards-s {
+    gap: 130px;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 920px) {
+  .conteiner {
+    max-width: 800px;
+    margin: 0 auto;
+    /* background-color: blue; */
+  }
+
+  .banner-texto h2 {
+    font-size: 40px;
+  }
+
+  .banner-texto p {
+    font-size: 20px;
+  }
+
+  #best-cards-s {
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+
+  .img-content {
+    width: 400px;
+  }
+
+  .img-content .img1 {
+    left: 50px;
+  }
+
+  .img-content .img2 {
+    left: 160px;
+  }
+
+  .show-post,
+  .coment-box {
+    flex-direction: column;
+  }
+
+  .content-show,
+  .avaliacao-coment {
+    order: -1;
+  }
+
+  .content-textShow {
+    height: 100px;
+  }
+
+  .avaliacao-coment {
+    margin-bottom: 40px;
+  }
+
+  .comentarios form button {
+    padding: 5px 10px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 820px) {
+  .conteiner {
+    max-width: 500px;
+    margin: 0 auto;
+    /* background-color: blue; */
+  }
+
+  .banner-texto h2 {
+    font-size: 25px;
+  }
+
+  .banner-texto p {
+    font-size: 15px;
+  }
+
+  .options-order {
+    order: -1;
+    margin-bottom: 10px;
+  }
+
+  .profile {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 550px) {
+  .conteiner {
+    max-width: 470px;
+    margin: 0 auto;
+    /* background-color: blue; */
+  }
+
+  .box-card {
+    width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 414px) {
+  .conteiner {
+    max-width: 310px;
+    margin: 0 auto;
+    /* background-color: blue; */
+  }
+
+  .banner-texto h2 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .banner-texto p {
+    font-size: 12px;
+    max-width: 200px;
+    text-align: center;
+  }
+
+  .banner-texto a {
+    font-size: 15px;
+    padding: 7px 12px;
+  }
+
+  .text-principal {
+    font-size: 15px;
+  }
+
+  .text-about-p {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .statistic p:nth-child(1) {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .box-card {
+    width: 320px;
+    margin: 0px auto;
+    margin-top: 10px;
+  }
+
+
+  .card-single img {
+    width: 300px;
+    height: 330px;
+    margin: 10px auto;
+    display: block;
+    border-radius: 7px;
+  }
+
+  .menu-lista {
+    width: 100%;
+  }
+
+  .text-slide-img p:nth-child(1) {
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .text-slide-img p:nth-child(2) {
+    color: gainsboro;
+    font-size: 12px;
+  }
+
+  .options-slide-img {
+    margin-left: auto;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .options-slide-img p:nth-child(1) {
+    font-size: 12px;
+  }
+
+  .options-slide-img svg {
+    font-size: 20px;
+  }
+
+  .form-box {
+    justify-content: center;
+  }
+
+  .form-box .input-box {
+    width: 100%;
+  }
+
+  .estados {
+    width: 100%;
+    z-index: 1000;
+  }
+
+  .form-cadastro,
+  .form-box {
+    padding: 5px 10px;
+    width: 100%;
+  }
+
+  .cadastro-box .center {
+    width: 100%;
+    margin: 60px 0px;
+  }
+
+
+}

@@ -1,0 +1,18 @@
+.best {
+    height: 100vh;
+}
+
+.box-card {
+    width: 385px;
+}
+
+.box-card h3 {
+    color: #137777;
+}
+
+#best-cards-s {
+    display: flex;
+    width: 100%;
+    gap: 23px;
+    /* flex-wrap: wrap; */
+}

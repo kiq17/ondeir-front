@@ -1,0 +1,84 @@
+.edit-profile {
+    padding: 60px 0;
+}
+
+.edit-profile-box {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.edit-profile-content,
+.ed-profile-form-post {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.edit-profile-actions {
+    display: flex;
+    margin-left: 20px;
+    flex-direction: column;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.edit-profile-actions h3 {
+    margin-bottom: 20px;
+}
+
+.edit-profile-texto {
+    margin-bottom: 30px;
+    align-self: center;
+    text-align: center;
+}
+
+.edit-profile-texto h2{
+    font-size: 30px;
+    color: var(--cor-verde);
+}
+
+.edit-profile-texto p{
+    color: var(--cor-subtitulo);
+}
+
+.edit-textarea {
+
+    width: 100%;
+    border: 2px solid black;
+    height: 200px;
+    padding: 10px;
+    font-size: 15px;
+    resize: none;
+    border-radius: 4px;
+}
+
+.ed-profile-first-form .input-box {
+    width: 100%;
+}
+
+.ed-profile-form-post {
+    padding: 0px 10px;
+}
+
+.ed-profile-first-form {
+    height: 100%;
+}
+
+.edit-profile-btn {
+    font-size: 18px;
+    background-color: var(--cor-verde);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 7px;
+    font-family: var(--font-principal);
+    outline: none;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.edit-profile-actions span:hover{
+    cursor: pointer;
+}

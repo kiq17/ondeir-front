@@ -1,0 +1,78 @@
+.change-pass {
+    padding: 60px 0;
+}
+
+.change-pass-box {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.change-pass-content,
+.ed-profile-form-post {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.edit-profile-actions {
+    display: flex;
+    margin-left: 20px;
+    flex-direction: column;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.edit-profile-actions h3 {
+    margin-bottom: 20px;
+}
+
+.change-pass-texto {
+    margin-bottom: 30px;
+    align-self: center;
+    text-align: center;
+}
+
+.change-pass-texto h2{
+    font-size: 30px;
+    color: var(--cor-verde);
+}
+
+.change-pass-texto p{
+    color: var(--cor-subtitulo);
+}
+
+.change-pass-first-form{
+    width: 400px;
+    margin: 0 auto;
+}
+
+.change-pass-first-form .input-box {
+    width: 100%;
+}
+
+.ed-profile-form-post {
+    padding: 0px 10px;
+}
+
+.change-pass-first-form {
+    height: max-content;
+}
+
+.edit-profile-btn {
+    font-size: 18px;
+    background-color: var(--cor-verde);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 7px;
+    font-family: var(--font-principal);
+    outline: none;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.edit-profile-actions span:hover{
+    cursor: pointer;
+}

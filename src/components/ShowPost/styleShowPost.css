@@ -1,0 +1,132 @@
+.actions-show button {
+    font-size: 18px;
+    background-color: var(--cor-verde);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 7px;
+    font-family: var(--font-principal);
+    display: flex;
+    gap: 15px;
+    border: none;
+    outline: none;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+
+.actions-show a {
+    font-size: 18px;
+    background-color: var(--cor-verde);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 7px;
+    font-family: var(--font-principal);
+    display: flex;
+    gap: 15px;
+    border: none;
+    outline: none;
+    align-items: center;
+    cursor: pointer;
+}
+
+.show-post {
+    display: flex;
+    padding: 60px 0px;
+    gap: 20px;
+}
+
+.img-show {
+    flex: 1;
+    height: 610px;
+}
+
+.img-show img {
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.content-show {
+    flex: 1;
+}
+
+.content-show h3 {
+    font-size: 40px;
+    color: var(--cor-verde);
+}
+
+.content-show.sm h3 {
+    font-size: 35px;
+    color: var(--cor-verde);
+}
+
+
+.texto-titulo {
+    margin-bottom: 20px;
+}
+
+.texto-titulo p {
+    font-size: 15px;
+    color: var(--cor-subtitulo);
+}
+
+.texto-titulo a{
+    color: darkgray;
+    text-decoration: underline;
+    transition: .3s;
+}
+
+.actions-show {
+    display: flex;
+    gap: 20px;
+}
+
+.content-textShow {
+    height: 385px;
+    max-width: 590px;
+    word-wrap: break-word;
+    overflow-y: auto;
+}
+
+.avaliacoes-show {
+    margin-bottom: 20px;
+}
+
+.stars svg:hover {
+    color: yellow;
+    cursor: pointer;
+}
+
+.avaliacoes-stars {
+    margin-top: 10px;
+}
+
+.text-slide-img {
+    display: flex;
+    flex-direction: column;
+}
+
+.text-slide-img p:nth-child(1) {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.text-slide-img p:nth-child(2) {
+    color: gainsboro;
+    font-size: 15px;
+}
+
+.options-slide-img {
+    margin-left: auto;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.options-slide-img p:nth-child(1) {
+    font-size: 15px;
+}
+
+.options-slide-img svg{
+    font-size: 32px;
+}

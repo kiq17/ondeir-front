@@ -1,0 +1,64 @@
+.input-otp {
+    border-radius: 0.25rem;
+    outline: none;
+    border: 2px solid gray;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+    text-align: center;
+    color: #9CA3AF;
+    background-color: transparent;
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
+.box-otp {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    gap: 15px;
+}
+
+.box-otp input[type="number"]:focus{
+    border: 2px solid black;
+}
+
+.code-resend{
+    background: transparent;
+    outline: none;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.code-resend:disabled{
+    cursor: not-allowed;
+    color: #919191;
+    font-size: 15px;
+}
+
+.input-otp-s {
+    padding-top: 0.125rem;
+    padding-bottom: 0.125rem;
+    width: 0.5rem;
+    background-color: #9CA3AF;
+}
+
+.otp-btn{
+    outline: none;
+    cursor: pointer;
+    border: none;
+    font-size: 15px;
+    font-family: var(--font-principal);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background-color: var(--cor-verde);
+    font-weight: bold;
+}

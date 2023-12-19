@@ -1,0 +1,53 @@
+.toastMsg {
+    position: absolute;
+    top: 120px;
+    right: 30px;
+    padding: 20px;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 20px;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(197, 197, 197, 0.445);
+    animation: tostAnimation 1s forwards;
+}
+
+.removeMsg {
+    animation: tostRemove 1s forwards;
+}
+
+.toastMsg i {
+    color: red;
+    font-size: 20px;
+}
+
+.toastMsg p:nth-child(1) {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.toastMsg p:nth-child(2) {
+    color: darkgray;
+}
+
+@keyframes tostAnimation {
+    0% {
+        opacity: 0;
+        right: -30px;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes tostRemove {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

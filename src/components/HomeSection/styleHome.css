@@ -1,0 +1,58 @@
+.banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.banner-texto {
+    max-width: 600px;
+}
+
+.banner-texto h2 {
+    font-size: 45px;
+    font-family: var(--font-principal);
+    font-weight: bold;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.banner-texto p {
+    font-size: 24px;
+    font-family: var(--font-principal);
+    color: var(--cor-subtitulo);
+    margin-bottom: 25px;
+}
+
+.banner-texto a {
+    font-size: 18px;
+    font-family: var(--font-principal);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 7px;
+    background-color: var(--cor-verde);
+    font-weight: bold;
+}
+
+.img-banner {
+    height: 590px;
+    border-radius: 38% 38% 0px 0px;
+    width: 400px;
+    margin-top: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: all .4s;
+    background-image: url('../../assets/compressed/compressedHome.png');
+}
+
+.img-banner img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    visibility: hidden;
+}
+
+.img-banner.load img{
+    visibility: visible;
+}

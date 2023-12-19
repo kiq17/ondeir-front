@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Istok+Web:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Istok Web', sans-serif;
+}
+
+
+:root {
+    --cor-verde: #0A7777;
+    --cor-titulo: black;
+    --cor-subtitulo: darkgray;
+    --font-principal: 'Istok Web', sans-serif;
+}
+
+/* Conteiner padrão */
+
+.conteiner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilização do header */
+
+header {
+    box-shadow: 0px 10px 14px -20px rgba(0, 0, 0, 0.9);
+}
+
+.box-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+}
+
+.box-header h1 a {
+    font-size: 30px;
+    color: var(--cor-verde);
+    font-family: var(--font-principal);
+    font-weight: bold;
+}
+
+.menu-lista ul {
+    display: flex;
+    gap: 50px;
+}
+
+.actions-menu-header {
+    display: flex;
+    gap: 50px;
+}
+
+
+.box-header li a {
+    font-size: 18px;
+    color: var(--cor-titulo);
+    font-family: var(--font-principal);
+    font-weight: bold;
+}
+
+.box-header li:last-child a {
+    font-size: 18px;
+    background-color: var(--cor-verde);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 7px;
+    font-family: var(--font-principal);
+}
+
+.box-header li:last-child{
+    color: black;
+}
+
+#btn-mobile{
+    display: none;
+}
