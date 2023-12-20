@@ -10,9 +10,7 @@
 
 ## Sobre
 
-Depois da pandemia as pessoas ficaram com vontade de viajar, começaram a ter curiosidade sobre lugares diferentes e tiveram mais interesse em viagens.
-
-Mediante a este cenário surgiu à intenção de criar um lugar onde as pessoas possam mostrar suas experiências e mostrar para os outros pontos positivos e negativos dos lugares que visitaram.
+Depois da pandemia as pessoas ficaram com vontade de viajar, começaram a ter curiosidade sobre lugares diferentes e tiveram mais interesse em viagens. Mediante a este cenário surgiu à intenção de criar um lugar onde as pessoas possam mostrar suas experiências e mostrar para os outros pontos positivos e negativos dos lugares que visitaram.
 
 ## Aviso
 
@@ -82,6 +80,8 @@ Esta aplicação está utilizando serviços gratuitos e por conta disto o carreg
  ┃ ┣ 📂NewPost
  ┃ ┃ ┣ 📜Post.tsx
  ┃ ┃ ┗ 📜stylePost.css
+ ┃ ┣ 📂PlacesUser
+ ┃ ┃ ┗ 📜PlaceUser.tsx
  ┃ ┣ 📂Posts
  ┃ ┃ ┣ 📜Posts.tsx
  ┃ ┃ ┗ 📜stylePosts.css
@@ -100,6 +100,7 @@ Esta aplicação está utilizando serviços gratuitos e por conta disto o carreg
  ┃ ┃ ┗ 📜styleSend.css
  ┃ ┣ 📂Shared
  ┃ ┃ ┣ 📂Hooks
+ ┃ ┃ ┃ ┣ 📜useFetchPlaces.tsx
  ┃ ┃ ┃ ┗ 📜useMediaQuery.tsx
  ┃ ┃ ┣ 📂Select
  ┃ ┃ ┃ ┣ 📜Select.tsx
@@ -156,6 +157,7 @@ Esta aplicação está utilizando serviços gratuitos e por conta disto o carreg
  ┃ ┃ ┗ 📜index.tsx
  ┣ 📂services
  ┃ ┣ 📜api.ts
+ ┃ ┣ 📜calcDate.ts
  ┃ ┗ 📜states.ts
  ┣ 📜App.css
  ┣ 📜App.tsx
@@ -167,6 +169,7 @@ Esta aplicação está utilizando serviços gratuitos e por conta disto o carreg
 ## Funcionalidades
 
 - Cadastro de conta
+- Editar foto de perfil
 - Criação de postagens
 - Visualização de imagens
 - Comentários
@@ -178,6 +181,7 @@ Esta aplicação está utilizando serviços gratuitos e por conta disto o carreg
 
 Neste vídeo abaixo você pode acompanhar com detalhes o processo de todas as funcionalidades presentes na aplicação:
 
+[![Vídeo do projeto](https://markdown-videos-api.jorgenkh.no/url?url=https%3A%2F%2Fyoutu.be%2F83kpZzXbVx0)](https://youtu.be/83kpZzXbVx0)
 
 ## Funções protegidas
 
