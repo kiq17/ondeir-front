@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import "../global.css";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import ChangePassPage from "./pages/ChangePass";
 import NewPostPage from "./pages/CreatePost";

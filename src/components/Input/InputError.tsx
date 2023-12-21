@@ -11,7 +11,7 @@ interface InputIconProps {
 }
 
 export function InputError({ stantard, state }: InputIconProps) {
-    if (state.error.length > 0) {
+    if (state.error) {
         return (
             <p className={"text-red-500 text-sm absolute animate-errorAni left-2 flex gap-2"}>
                 <ExclamationCircleIcon className="h-5 w-5" />
