@@ -43,9 +43,8 @@
 }
 
 .edit-textarea {
-
     width: 100%;
-    border: 2px solid black;
+    border: 2px solid #a1a1aa;
     height: 200px;
     padding: 10px;
     font-size: 15px;
