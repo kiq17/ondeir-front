@@ -103,10 +103,11 @@ img{
 
 .input-box {
     position: relative;
-    border: 2px solid black;
+    border: 2px solid rgb(113 113 122 / var(--tw-border-opacity));
     border-radius: 4px;
+    --tw-border-opacity: 1;
     width: 250px;
-    height: 50px;
+    height: 56px;
     transition: .3s;
     margin-bottom: 30px;
 }
