@@ -50,7 +50,7 @@
 
 .textArea-box textarea {
     width: 100%;
-    border: 2px solid black;
+    border: 2px solid #a1a1aa;
     height: 100%;
     padding: 10px;
     font-size: 15px;
@@ -67,8 +67,8 @@
     border-radius: 4px;
 }
 
-.textArea-box textarea:hover {
-    border: 2px solid black;
+.textArea-box textarea:focus {
+    border: 2px solid red;
 }
 
 .post button {

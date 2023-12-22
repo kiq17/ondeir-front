@@ -11,12 +11,16 @@ interface LocalUser {
     email: string;
 }
 
+type ErrorLogin = {
+    status: string;
+    message: string;
+}
+
 interface ContextProps {
     authenticated: boolean
     user: null | LocalUser
-    login: (value: LoginUser) => void
+    login: (value: LoginUser) => Promise<ErrorLogin | undefined>
     logout: () => void
-    errorLogin: Record<string, string>
     loading: boolean
 }
 
@@ -29,7 +33,6 @@ interface AuthProps {
 export const AuthProvider = ({ children }: AuthProps) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(false);
-    const [errorLogin, setErroLogin] = useState<Record<string,string>>({});
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -58,9 +61,11 @@ export const AuthProvider = ({ children }: AuthProps) => {
         } catch (error) {
             if (error instanceof AxiosError) {
                 if(error.response?.status === 401){
-                    setErroLogin({status: "unauthorized", message: error?.response?.data.tempLink});
+                    setLoading(false);
+                    return {status: "unauthorized", message: error?.response?.data.tempLink}
                 } else{
-                    setErroLogin({status: "email", message: error?.response?.data.message});
+                    setLoading(false);
+                    return {status: "email", message: error?.response?.data.message}
                 }
             }
             setLoading(false);
@@ -82,7 +87,6 @@ export const AuthProvider = ({ children }: AuthProps) => {
                 user,
                 login,
                 logout,
-                errorLogin,
                 loading
             }
         }>
