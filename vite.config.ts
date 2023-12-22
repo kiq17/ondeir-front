@@ -1,10 +1,22 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
+import { defineConfig as defineViteConfig, mergeConfig } from "vite";
+import { defineConfig as defineVitestConfig } from "vitest/config";
+import react from "@vitejs/plugin-react-swc";
 
-// https://vitejs.dev/config/
-export default defineConfig({
+
+const viteConfig = defineViteConfig({
   plugins: [react()],
-  server:{
-    port: 3000
-  }
+  server: {
+    port: 3000,
+  },
 });
+
+const vitestConfig = defineVitestConfig({
+  test: {
+    globals: true,
+    environment: "jsdom",
+    css: true,
+    setupFiles: ["./src/setupTests.ts"],
+  },
+});
+
+export default mergeConfig(viteConfig, vitestConfig);
