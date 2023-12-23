@@ -1,13 +1,10 @@
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { EyeIcon, EyeSlashIcon } from "@heroicons/react/20/solid";
+import { EyeIcon, EyeSlashIcon, XMarkIcon } from "@heroicons/react/20/solid";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import * as yup from "yup";
 import { ValidationError } from "yup";
 import { AuthContext } from "../../context/auth";
 import { Input } from "../Input";
-import "../Modal/styleModal.css";
 
 interface IFormLogin {
   email: string;
@@ -87,14 +84,14 @@ const Modal = ({ visible, setVisible }) => {
             setVisible(false);
           }
         }}
-        className={visible ? "conteiner-modal mostrar" : "conteiner-modal"}
+        className={visible ? "conteiner-modal" : "h-screen fixed top-0 left-0 hidden justify-center items-center w-full z-[1000] bg-black bg-opacity-50 animate-fundo"}
       >
         <div className="modal">
-          <button id="fechar" onClick={() => setVisible(false)}>
-            <FontAwesomeIcon icon={faXmark} />
+          <button className="absolute text-2xl cursor-pointer bg-transparent top-3 right-6 text-zinc-400 hover:bg-zinc-100 transition-colors duration-300 rounded-full" onClick={() => setVisible(false)}>
+            <XMarkIcon className="w-8 h-8"/>
           </button>
-          <h3>Login</h3>
-          <form onSubmit={handleSubmit} className="form-box">
+          <h3 className="font-bold text-3xl mb-8">Login</h3>
+          <form onSubmit={handleSubmit} className="flex flex-col items-center gap-5">
             <Input.Root
               handleOnChange={(value) => {
                 setFormValue((prev) => ({ ...prev, email: value }));
@@ -167,23 +164,23 @@ const Modal = ({ visible, setVisible }) => {
               </Input.Icon>
             </Input.Root>
             {check.type === "unauthorized" && (
-              <p style={{ fontSize: "13px" }}>
+              <p className="text-sm">
                 Sua conta ainda não foi verificada.{" "}
                 <Link
-                  style={{ color: "blue", marginLeft: "5px", fontSize: "13px" }}
+                className="text-blue-500 transition-all hover:underline text-sm ml-1"
                   to={`/verificacao/${check.message}`}
                 >
                   Clique aqui
                 </Link>
               </p>
             )}
-            <button type="submit" className="btn-submit">
+            <button type="submit" className="btn w-full">
               {loading ? "Carregando..." : "Entrar"}
             </button>
-            <p className="reg">
-              Não tem uma conta?<a href="/cadastro">Inscreva-se</a>
+            <p className="flex gap-3">
+              Não tem uma conta?<Link className="link-base" to={"/cadastro"}>Inscreva-se</Link>
             </p>
-            <Link to={"/enviar"}>Esqueceu sua senha?</Link>
+            <Link className="link-base" to={"/enviar"}>Esqueceu sua senha?</Link>
           </form>
         </div>
       </div>

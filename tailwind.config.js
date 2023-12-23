@@ -4,6 +4,12 @@ module.exports = {
   content: ["./src/**/*.tsx", "./index.html"],
   theme: {
     extend: {
+      backgroundColor: {
+        gr: "#0A7777",
+      },
+      fontFamily: {
+        sans: ['"Istok Web"', "sans-serif"],
+      },
       keyframes: {
         hide: {
           from: { opacity: 1 },
@@ -37,6 +43,14 @@ module.exports = {
           from: { opacity: 1, top: "50%" },
           to: { opacity: 0, top: "2.5em" },
         },
+        fundo: {
+          from: { opacity: 0 },
+          to: { opacity: 1 },
+        },
+        modal:{
+          from: { opacity: 0, transform: "translateY(-60px)" },
+          to: {opacity: 1, transform: "translateY(0)" },
+        }
       },
       animation: {
         hide: "hide 300ms ease-in-out",
@@ -47,6 +61,8 @@ module.exports = {
         swipeOut: "swipeOut 100ms ease-out",
         down: "down 300ms ease-in-out",
         up: "up 300ms ease-in-out",
+        fundo: "fundo .5s forwards",
+        modal: "modal 1s forwards"
       },
     },
   },
