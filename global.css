@@ -22,7 +22,7 @@
     @apply bg-white p-6 flex flex-col items-center relative w-96 rounded-xl z-[10000] animate-modal;
   }
 
-  .link-base{
-    @apply text-blue-500 hover:underline ;
+  .link-base {
+    @apply text-blue-500 hover:underline;
   }
 }
