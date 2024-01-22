@@ -5,7 +5,10 @@ module.exports = {
   theme: {
     extend: {
       backgroundColor: {
-        gr: "#0A7777",
+        gr: "#0a7777",
+      },
+      textColor:{
+        gr: "#0a7777"
       },
       fontFamily: {
         sans: ['"Istok Web"', "sans-serif"],

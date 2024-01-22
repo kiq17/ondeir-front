@@ -1,32 +1,57 @@
 import { Link } from "react-router-dom";
-import "../Footer/styleFooter.css";
-import useMediaQuery from "../Shared/Hooks/useMediaQuery";
 
 const Footer = () => {
-    const isMobile = useMediaQuery('(min-width: 550px)');
 
-    return (
-        <footer className="conteiner">
-            <div className="logo-footer">
-                <h3>OndeIr</h3>
-            </div>
-            {isMobile && <div className="mapa-site">
-                <h3>Mapa do Site</h3>
-                <ul>
-                    <li> <a href="/">Home</a></li>
-                    <li><Link state={"recente"} to={"/postagens"}>Postagens</Link></li>
-                </ul>
-            </div>}
-            <div className="rede-sociais">
-                <h3>Rede Sociais</h3>
-                <ul>
-                    <li> <a href="">Facebook</a></li>
-                    <li> <a href="">Youtube</a></li>
-                    <li> <a href="">Instagram</a></li>
-                </ul>
-            </div>
-        </footer>
-    )
-}
+  return (
+    <footer className="max-w-[1200px] m-auto flex justify-between max-sm:max-w-[310px] max-lg:max-w-[900px] py-5">
+      <div className="text-3xl text-gr mb-2 font-bold text-center">
+        <h3>OndeIr</h3>
+      </div>
+      <div className="max-sm:hidden">
+          <h3 className="font-bold text-lg">Mapa do Site</h3>
+          <ul>
+            <li>
+              {" "}
+              <a className="hover:underline text-zinc-500" href="/">
+                Home
+              </a>
+            </li>
+            <li>
+              <Link
+                className="hover:underline text-zinc-500"
+                state={"recente"}
+                to={"/postagens"}
+              >
+                Postagens
+              </Link>
+            </li>
+          </ul>
+        </div>
+      <div>
+        <h3 className="font-bold text-lg">Rede Sociais</h3>
+        <ul>
+          <li>
+            {" "}
+            <a className="hover:underline text-zinc-500" href="">
+              Facebook
+            </a>
+          </li>
+          <li>
+            {" "}
+            <a className="hover:underline text-zinc-500" href="">
+              Youtube
+            </a>
+          </li>
+          <li>
+            {" "}
+            <a className="hover:underline text-zinc-500" href="">
+              Instagram
+            </a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+  );
+};
 
 export default Footer;
