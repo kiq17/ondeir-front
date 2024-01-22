@@ -137,7 +137,7 @@ img{
     background-color: white;
 }
 
-.form-input {
+/* .form-input {
     font-size: 15px;
     background-color: transparent;
     padding: 5px;
@@ -148,7 +148,7 @@ img{
     outline: none;
     border: none;
     border-radius: 4px;
-}
+} */
 
 .form-label {
     position: absolute;
@@ -188,7 +188,7 @@ img{
 
 
 
-.img-compress {
+/* .img-compress {
     width: 700px;
     height: 400px;
     background-position: center;
@@ -196,19 +196,19 @@ img{
     background-size: cover;
     transition: all .4s;
     background-image: url('../../assets/compressed/cadastroCompressesd.jpg');
-}
+} */
 
-.img-compress img {
+/* .img-compress img {
     height: 100%;
     width: 100%;
     object-fit: cover;
     object-position: center;
     visibility: hidden;
-}
+} */
 
-.img-compress.load img{
+/* .img-compress.load img{
     visibility: visible;
-}
+} */
 
 .error-msg{
     margin-bottom: 12px;
