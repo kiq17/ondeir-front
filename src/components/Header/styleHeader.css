@@ -55,14 +55,14 @@ header {
 }
 
 
-.box-header li a {
+/* .box-header li a {
     font-size: 18px;
     color: var(--cor-titulo);
     font-family: var(--font-principal);
     font-weight: bold;
-}
+} */
 
-.box-header li:last-child a {
+/* .box-header li:last-child a {
     font-size: 18px;
     background-color: var(--cor-verde);
     color: white;
@@ -73,7 +73,7 @@ header {
 
 .box-header li:last-child{
     color: black;
-}
+} */
 
 #btn-mobile{
     display: none;
