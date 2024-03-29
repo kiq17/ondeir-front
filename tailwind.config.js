@@ -14,6 +14,7 @@ module.exports = {
     extend: {
       backgroundColor: {
         gr: "#0a7777",
+        card: "#f1f5f8"
       },
       textColor: {
         gr: "#0a7777",

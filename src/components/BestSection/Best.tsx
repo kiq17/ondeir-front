@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Place } from "../../interfaces/place";
 import { getAllPlaces } from "../../services/api";
-import "../BestSection/styleBest.css";
 import Card from "../Card/Card";
 import CardSkeleton from "../Shared/Skeleton/CardSkeleton";
 
@@ -26,13 +25,13 @@ const Best = () => {
 
 
     return (
-        <section className="best conteiner" style={{ marginBottom: "100px", height: "100%" }}>
-            <h3 className="text-principal">Mais Avaliados</h3>
-            <p className="text-about-p">Melhores lugares do mundo.</p>
-            <div id="best-cards-s">
+        <section className="h-full conteiner mb-16">
+            <h3 className="text-gr text-lg font-bold">Mais Avaliados</h3>
+            <p className="text-3xl mb-3 font-bold max-sm:text-xl">Melhores lugares do mundo.</p>
+            <div className="flex w-full gap-6">
                 {places.length > 0 ? places.map(place => {
                     return (
-                        <div className="box-card" key={crypto.randomUUID()}>
+                        <div className="w-96" key={crypto.randomUUID()}>
                             <Card
                                 descricao={place.descricao}
                                 imagem={place.imageFile[0]}
