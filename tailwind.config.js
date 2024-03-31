@@ -12,6 +12,9 @@ module.exports = {
       "2xl": "1536px"
     },
     extend: {
+      backgroundImage:{
+        'camera': "url('/src/assets/CameraCover.png')"
+      },
       backgroundColor: {
         gr: "#0a7777",
         card: "#f1f5f8"
@@ -23,6 +26,20 @@ module.exports = {
         sans: ['"Istok Web"', "sans-serif"],
       },
       keyframes: {
+        blob: {
+          "0%": {
+            transform: "translate(0px, 0px) scale(1)",
+          },
+          "33%": {
+            transform: "translate(30px, -50px) scale(1.1)",
+          },
+          "66%": {
+            transform: "translate(-20px, 20px) scale(0.9)",
+          },
+          "100%": {
+            transform: "tranlate(0px, 0px) scale(1)",
+          },
+        },
         hide: {
           from: { opacity: 1 },
           to: { opacity: 0 },
@@ -75,6 +92,7 @@ module.exports = {
         up: "up 300ms ease-in-out",
         fundo: "fundo .5s forwards",
         modal: "modal 1s forwards",
+        blob: "blob 7s infinite",
       },
     },
   },
