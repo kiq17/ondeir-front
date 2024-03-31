@@ -25,10 +25,10 @@ const Best = () => {
 
 
     return (
-        <section className="h-full conteiner mb-16">
+        <section className="h-full conteiner">
             <h3 className="text-gr text-lg font-bold">Mais Avaliados</h3>
             <p className="text-3xl mb-3 font-bold max-sm:text-xl">Melhores lugares do mundo.</p>
-            <div className="flex w-full gap-6">
+            <div className="flex w-full gap-6 flex-wrap max-lg:justify-between">
                 {places.length > 0 ? places.map(place => {
                     return (
                         <div className="w-96" key={crypto.randomUUID()}>
