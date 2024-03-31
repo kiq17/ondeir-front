@@ -1,12 +1,6 @@
 import { ExclamationCircleIcon } from "@heroicons/react/20/solid";
 import { AxiosError } from "axios";
-import {
-    FormEvent,
-    useContext,
-    useEffect,
-    useRef,
-    useState
-} from "react";
+import { FormEvent, useContext, useEffect, useRef, useState } from "react";
 import FileBase from "react-file-base64";
 import { useNavigate } from "react-router-dom";
 import { ValidationError } from "yup";
@@ -14,7 +8,6 @@ import { AuthContext } from "../../context/auth";
 import { createPalce } from "../../services/api";
 import { postSchema } from "../EditPost/EditPost";
 import { Input } from "../Input";
-import "../NewPost/stylePost.css";
 import { Tags } from "../Shared/Tags/Tags";
 
 interface CreatePlace {
@@ -41,7 +34,6 @@ const Post = () => {
 
   const validateSchema = () => {
     try {
-      console.log(formValue);
       postSchema.validateSync(
         {
           titulo,
@@ -118,14 +110,14 @@ const Post = () => {
   };
 
   return (
-    <section className="post conteiner">
-      <div className="post-box">
-        <div className="post-texto">
-          <h2>Crie seu post</h2>
-          <p>Compartilhe sua experiência conosco</p>
+    <section className="py-16 conteiner">
+      <div className="flex flex-col justify-center gap-5">
+        <div className="text-center m-auto mb-8">
+          <h2 className="text-3xl font-bold text-gr">Crie seu post</h2>
+          <p className="text-zinc-400">Compartilhe sua experiência conosco</p>
         </div>
         <form
-          className="form-post"
+          className="flex justify-between flex-wrap w-full gap-5"
           onSubmit={handleSubmit}
           onKeyDown={(event) => {
             if (event.code === "Enter") {
@@ -133,7 +125,7 @@ const Post = () => {
             }
           }}
         >
-          <div className="first-form-post">
+          <div className="w-full flex-1">
             <Input.Root
               handleOnChange={(value) => {
                 setFormValue((prev) => ({ ...prev, titulo: value }));
@@ -175,7 +167,7 @@ const Post = () => {
                 {errors.tags}
               </p>
             )}
-            <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
+            <div className="flex gap-5 flex-wrap">
               <label
                 ref={inputRef}
                 className="box-fileInput"
@@ -188,23 +180,13 @@ const Post = () => {
                 />
               </label>
               {errors.imageFile && (
-                <p
-                  className="error-msg"
-                  style={{ alignSelf: "flex-end", marginBottom: "0px" }}
-                >
+                <p className="text-red-500 text-sm animate-errorAni ml-3 flex gap-2 self-end">
                   {errors.imageFile}
                 </p>
               )}
               {imageState.length
                 ? imageState.map((image, index) => (
-                    <div
-                      key={index}
-                      style={{
-                        width: "120px",
-                        height: "120px",
-                        position: "relative",
-                      }}
-                    >
+                    <div key={index} className="w-32 h-32 relative">
                       <button
                         type="button"
                         id={index.toString()}
@@ -213,25 +195,12 @@ const Post = () => {
                             (e.target as HTMLButtonElement).id
                           )
                         }
-                        style={{
-                          width: "20px",
-                          padding: "5px",
-                          height: "20px",
-                          display: "flex",
-                          alignItems: "center",
-                          margin: "0px",
-                          backgroundColor: "red",
-                          borderRadius: "100%",
-                          fontSize: "15px",
-                          position: "absolute",
-                          right: "5px",
-                          bottom: "90px",
-                        }}
+                        className="w-5 p-1 h-5 flex items-center rounded-full absolute right-1 bottom-20"
                       >
                         X
                       </button>
                       <img
-                        style={{ borderRadius: "7px" }}
+                        className="rounded-xl"
                         src={image}
                         alt="Imagem selecionada"
                       />
@@ -239,18 +208,16 @@ const Post = () => {
                   ))
                 : ""}
               {errors?.imageError && (
-                <p
-                  className="error-msg"
-                  style={{ marginTop: "-15px", marginBottom: "15px" }}
-                >
+                <p className="text-red-500 text-sm animate-errorAni ml-3 flex gap-2 -mt-4 -mb-4">
                   {errors.imageError}
                 </p>
               )}
             </div>
           </div>
-          <div className="second-form-post">
-            <div className="textArea-box" style={{ marginBottom: "20px" }}>
+          <div className="flex-auto">
+            <div className="h-full border-2 rounded-md p-3 border-zinc-400 mb-5">
               <textarea
+                className="resize-none w-full h-full border-none outline-none"
                 name="descricao"
                 placeholder="Descrição"
                 value={formValue.descricao}
@@ -269,7 +236,7 @@ const Post = () => {
               {errors.descricao && (
                 <p
                   className={
-                    "text-red-500 text-sm animate-errorAni ml-3 flex gap-2"
+                    "text-red-500 text-sm animate-errorAni mt-4 flex gap-2"
                   }
                 >
                   <ExclamationCircleIcon className="h-5 w-5" />
@@ -278,8 +245,16 @@ const Post = () => {
               )}
             </div>
           </div>
-          <div style={{ alignContent: "center", margin: "0 auto" }}>
-            <button type="submit">{loading ? "Carregando..." : "Criar"}</button>
+          <div className="w-full m-auto flex justify-between mt-10">
+            <button
+              className="bg-zinc-300 transition-all duration-400 hover:bg-zinc-200 w-80 block text-center py-3 text-lg px-4 font-bold text-black rounded-md"
+              onClick={() => navigate(-1)}
+            >
+              Voltar
+            </button>
+            <button type="submit" className="btn w-80">
+              {loading ? "Carregando..." : "Criar"}
+            </button>
           </div>
         </form>
       </div>
