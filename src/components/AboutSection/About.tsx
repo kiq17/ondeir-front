@@ -3,10 +3,10 @@ import imgAbout2 from "../../assets/imgAbout2.png";
 
 const About = () => {
   return (
-    <section className="flex items-center justify-center h-svh conteiner">
+    <section className="flex items-center justify-center h-svh conteiner max-lg:h-[750px]">
       <div className="relative w-[650px] h-[350px] max-tablet:hidden">
-        <img className="w-[250px] h-[350px] absolute left-[120px] ml-auto mr-auto" src={imgAbout} alt="Paisagem com um coqueiro" />
-        <img className="w-[200px] h-[250px] absolute left-[230px] -bottom-16" src={imgAbout2} alt="Foto de um igreja" />
+        <img className="w-[250px] h-[350px] absolute left-[120px] ml-auto mr-auto max-lg:left-16" src={imgAbout} alt="Paisagem de um praia com um coqueiro" />
+        <img className="w-[200px] h-[250px] absolute left-[230px] -bottom-16 max-lg:left-44" src={imgAbout2} alt="Foto de um igreja" />
       </div>
       <div className="flex flex-col flex-1 gap-5">
         <div>
