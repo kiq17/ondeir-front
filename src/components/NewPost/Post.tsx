@@ -10,7 +10,7 @@ import { postSchema } from "../EditPost/EditPost";
 import { Input } from "../Input";
 import { Tags } from "../Shared/Tags/Tags";
 
-interface CreatePlace {
+export interface CreatePlace {
   titulo: string;
   descricao: string;
   tags: string[];
@@ -170,7 +170,7 @@ const Post = () => {
             <div className="flex gap-5 flex-wrap">
               <label
                 ref={inputRef}
-                className="box-fileInput"
+                className="bg-zinc-400 w-32 h-32 rounded-lg block bg-contain bg-no-repeat cursor-pointer bg-camera"
                 htmlFor="inputFile"
               >
                 <FileBase
