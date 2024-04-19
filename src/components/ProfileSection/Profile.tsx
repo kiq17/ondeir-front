@@ -1,5 +1,3 @@
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext, useEffect, useState } from "react";
 import FileBase from "react-file-base64";
 import { Link, useLocation, useParams } from "react-router-dom";
@@ -7,9 +5,9 @@ import { AuthContext } from "../../context/auth";
 import { editAvatar, getUser } from "../../services/api";
 import "../ProfileSection/styleProfile.css";
 /* import Toast from "../Toast/Toast"; */
+import { PlusIcon } from "@heroicons/react/24/outline";
 import User from "../../assets/user.png";
 import PlacesUser from "../PlacesUser/PlaceUser";
-import { PlusIcon } from "@heroicons/react/24/outline";
 
 interface UserInfo {
   nome: string;

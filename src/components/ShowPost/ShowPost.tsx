@@ -18,6 +18,7 @@ import { AxiosError } from "axios";
 import Lightbox from "react-spring-lightbox";
 import Modal from "../Modal/Modal";
 import { howMuchPass } from "../../services/calcDate";
+import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/solid";
 
 // import plugins if you need
 
@@ -253,34 +254,12 @@ const ShowPost = ({ params, starChange }: PsotProps) => {
               </div>
             )}
             renderPrevButton={({ canPrev }) => (
-              <FontAwesomeIcon
-                style={{
-                  marginLeft: "20px",
-                  zIndex: "10000",
-                  cursor: `${canPrev ? "pointer" : "not-allowed"}`,
-                }}
-                size="2x"
-                color={canPrev ? "black" : "#9ca3af"}
-                icon={faArrowLeft}
-                onClick={gotoPrevious}
-              />
+                <ArrowLeftIcon className={`ml-5 w-8 h-8 z-50 ${canPrev ? "cursor-pointer" : "cursor-not-allowed"} ${canPrev ? "black" : "text-zinc-400"}`} onClick={gotoPrevious} />
             )}
             renderNextButton={({ canNext }) => (
-              <FontAwesomeIcon
-                style={{
-                  marginRight: "20px",
-                  zIndex: "10000",
-                  cursor: `${canNext ? "pointer" : "not-allowed"}`,
-                }}
-                size="2x"
-                color={canNext ? "black" : "#9ca3af"}
-                icon={faArrowRight}
-                onClick={gotoNext}
-              />
+                <ArrowRightIcon className={`mr-5 w-8 h-8 z-50 ${canNext ? "cursor-pointer" : "cursor-not-allowed"} ${canNext ? "black" : "text-zinc-400"}`} onClick={gotoNext}/>
             )}
-            //  renderImageOverlay={() => (<ImageOverlayComponent >)}
             style={{ background: "grey" }}
-            //  onClose={()=> setIsOpen(false)}
             singleClickToZoom
             pageTransitionConfig={{
               from: { transform: "scale(0.75)", opacity: 0 },
@@ -295,7 +274,7 @@ const ShowPost = ({ params, starChange }: PsotProps) => {
           {imagens.length == 1 ? (
             <img
               key={crypto.randomUUID()}
-              style={{ height: "100%", width: "100%" }}
+              className="w-full h-full"
               src={imagens[0].value}
               alt="Imagem selecionada"
               onClick={() => {
@@ -309,7 +288,7 @@ const ShowPost = ({ params, starChange }: PsotProps) => {
                 return (
                   <img
                     key={crypto.randomUUID()}
-                    style={{ height: "70%", width: "100%" }}
+                    className="w-full h-[70%]"
                     src={img.value}
                     alt="Imagem selecionada"
                     onClick={() => {
@@ -322,11 +301,7 @@ const ShowPost = ({ params, starChange }: PsotProps) => {
                 return (
                   <img
                     key={crypto.randomUUID()}
-                    style={{
-                      height: "170px",
-                      width: "170px",
-                      marginRight: "10px",
-                    }}
+                    className="h-44 w-44 mr-3"
                     src={img.value}
                     alt="Imagem selecionada"
                     onClick={() => {
@@ -340,7 +315,7 @@ const ShowPost = ({ params, starChange }: PsotProps) => {
           )}
         </div>
         <div className="flex-1">
-          <div className="texto-titulo">
+          <div className="mb-5">
             {loading ? (
               <div className="w-full h-12 bg-zinc-300 animate-pulse rounded-md"></div>
             ) : (
@@ -350,19 +325,19 @@ const ShowPost = ({ params, starChange }: PsotProps) => {
             {loading ? (
               <div className="w-40 h-5 mt-3 bg-zinc-300 animate-pulse rounded-md"></div>
             ) : (
-              <p>
-                Criado por{" "}
-                <Link to={`/perfil/${place?.criadoPor._id}`}>
+              <p className="text-zinc-400">
+                Criado por
+                <Link className="underline mx-1" to={`/perfil/${place?.criadoPor._id}`}>
                   {place?.criadoPor.nome}
-                </Link>{" "}
-                {place ? howMuchPass(place.createdAt) : "..."}
+                </Link>
+                {place ? howMuchPass(place.createdAt) : ""}
               </p>
             )}
           </div>
           {loading ? (
             <div className="w-full h-96 mt-3 bg-zinc-300 animate-pulse rounded-md"></div>
           ) : (
-            <p className="content-textShow">{place?.descricao}</p>
+            <p className="h-96 max-w-[590px] break-words">{place?.descricao}</p>
           )}
 
           <div className="avaliacoes-show">
