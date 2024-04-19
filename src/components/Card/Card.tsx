@@ -21,8 +21,8 @@ const Card = ({ imagem, alt, nomePost, criador, descricao, data, tags, id, estre
     const navigate = useNavigate();
 
     return (
-        <div className="flex justify-between rounded-xl flex-col bg-card h-[580px] p-3 shadow-lg" key={crypto.randomUUID()}>
-            <img className='w-[372px] h-[330px] object-cover rounded-xl' src={imagem} alt={alt} />
+        <div className="flex justify-between rounded-xl flex-col bg-card h-[580px] w-[372px] p-3 shadow-lg" key={crypto.randomUUID()}>
+            <img className='w-full h-[330px] object-cover rounded-xl' src={imagem} alt={alt} />
             <div className="flex justify-between items-center mt-2">
                 <h3 className='text-xl font-bold text-gr'>{nomePost}</h3>
                 <p className='text-zinc-400 text-sm'>Postado por <Link className='underline hover:text-blue-600 transition-colors' to={`/perfil/${userId}`}>{criador}</Link></p>

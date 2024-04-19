@@ -14,6 +14,7 @@ const Best = () => {
             const response = await getAllPlaces(1, 5, "melhor")
             setPlaces(response.data.slice(0, 3));
             // setLoading(false);
+            console.log(response.data)
         } catch (error) {
             // setLoading(false);
         }
