@@ -45,7 +45,7 @@ const PlacesUser = () => {
             <>
                 {fetchedPlaces.map(place => {
                     return (
-                        <div style={{ marginBottom: "25px" }} className="box-card" key={crypto.randomUUID()}>
+                        <div style={{ marginBottom: "25px" }} className="w-96" key={crypto.randomUUID()}>
                             <Card
                                 key={crypto.randomUUID()}
                                 id={place._id}

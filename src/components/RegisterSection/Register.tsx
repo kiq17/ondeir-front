@@ -124,11 +124,12 @@ const Register = () => {
 
   return (
     <section className="cadastro-box conteiner">
-      <div className="center">
+      <div className="flex rounded-lg shadow-2xl">
         {isMed && (
-          <div className={loadingImg ? "img-compress" : "img-compress load"}>
+          <div className={loadingImg ? "bg-[url('src/assets/compressed/cadastroCompressesd.jpg')] w-[700px] h-[400px] bg-cover bg-center group transition-all duration-400 load" : "bg-[url('src/assets/compressed/cadastroCompressesd.jpg')] w-[700px] h-[400px] bg-cover bg-center group transition-all duration-400"}>
             <img
               src={bannerCadastro}
+              className="w-full h-full object-center object-cover group-[.load]:invisible"
               onLoad={() => {
                 setLoadingImg(false);
               }}
@@ -138,12 +139,12 @@ const Register = () => {
             />
           </div>
         )}
-        <div className="form-cadastro">
-          <div className="texto-cadastro">
-            <h3>Explore o mundo</h3>
-            <p>Preencha os dados abaixo</p>
+        <div className="bg-white flex flex-col items-center gap-5 py-1 px-6">
+          <div className="text-center mb-3">
+            <h3 className="font-bold text-3xl mt-3">Explore o mundo</h3>
+            <p className="text-zinc-500">Preencha os dados abaixo</p>
           </div>
-          <form onSubmit={handleSubmit} className="form-box">
+          <form onSubmit={handleSubmit} className="flex flex-wrap items-center gap-5 w-[450px]">
             {["nome", "email"].map((item, i) => {
               return (
                 <Input.Root
@@ -179,9 +180,9 @@ const Register = () => {
 
             <div
               className={
-                errorMsg || errors.estado || errorReq?.estadoError
-                  ? "input-box error-input"
-                  : "input-box"
+                errorMsg || errors.estado
+                  ? "box-input relative w-52 transition-all h-14 rounded-md cursor-text border-2 border-red-500 mb-9"
+                  : "box-input relative w-52 transition-all h-14 rounded-md cursor-text border-2 border-zinc-500 mb-9"
               }
               onClick={(e) => {
                 e.stopPropagation();
@@ -194,19 +195,19 @@ const Register = () => {
                 type="text"
                 name="estado"
                 autoComplete="off"
-                className="form-input"
+                className="w-full relative top-5 peer outline-none border-none p-2 h-7 placeholder-transparent text-zinc-700 bg-transparent"
                 placeholder=" "
                 onClick={(e) => e.stopPropagation()}
                 value={estado}
                 onChange={handleInputChange}
               />
-              <label htmlFor="estado" className="form-label">
+              <label htmlFor="estado" className="transition-all relative bottom-7 left-2 peer-focus:text-emerald-600 text-sm text-zinc-500 pointer-events-none peer-focus:bottom-7 peer-focus:text-sm peer-placeholder-shown:bottom-3 peer-placeholder-shown:text-base">
                 Estado
               </label>
               {estadosMatch.length ? (
-                <ul className="estados">
+                <ul className="bg-white h-48 w-52 overflow-scroll overflow-x-hidden absolute z-[1000] top-14">
                   {estadosMatch.map((value, index) => (
-                    <li key={index} onClick={newValue}>
+                    <li key={index} className="cursor-pointer p-2 color text-zinc-700 hover:bg-zinc-200 transition-all duration-300" onClick={newValue}>
                       {value}
                     </li>
                   ))}
@@ -270,8 +271,8 @@ const Register = () => {
                 )}
               </Input.Icon>
             </Input.Root>
-            <div className="box-button">
-              <button type="submit" className="btn-submit">
+            <div className="flex flex-col items-center w-full m-auto">
+              <button type="submit" className="btn w-1/2">
                 {loading ? "Carregando..." : "Cadastrar"}
               </button>
             </div>

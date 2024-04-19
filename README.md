@@ -16,13 +16,26 @@ Depois da pandemia as pessoas ficaram com vontade de viajar, começaram a ter cu
 
 Esta aplicação está utilizando serviços gratuitos e por conta disto o carregamento de algumas funcionalidades podem ser impactadas. O primeiro acesso à página gera um carregamento mais lento dos dados vindos da API, mediante a isso é necessário esperar cerca de dois minutos até que sejam carregadas as informações que dependem realizar requisições.
 
-## Tecnologias
+## Progresso
 
-- React
-- React Router
-- CSS
-- Axios
-- Yup
+Desde o inicio do projeto alterações estão sendo implementadas com o intuito de aprimorar e atualizar a aplicação.
+
+- JavaScript -> TypeScript
+- CSS -> Tailwind
+- Arquitetura Limpa (Em andamento)
+- Teste automatizados (Em andamento)
+- Novo Desgin (Em andamento)
+
+## Funcionalidades
+
+- Cadastro de conta com verificação por e-amil
+- Editar dados da conta
+- Criação e editar de postagens
+- Visualização de imagens
+- Comentários
+- Avaliar comentário
+- Avaliar postagem
+- Busca por postagens
 
 ## Estrutura de pastas
 
@@ -30,152 +43,54 @@ Esta aplicação está utilizando serviços gratuitos e por conta disto o carreg
 📦src
  ┣ 📂assets
  ┃ ┣ 📂compressed
- ┃ ┃ ┣ 📜cadastroCompressesd.jpg
- ┃ ┃ ┗ 📜compressedHome.png
- ┃ ┣ 📜bannerCadastro.jpg
- ┃ ┣ 📜bannerPrincipal.png
- ┃ ┣ 📜CameraCover.png
- ┃ ┣ 📜imgAbout.png
- ┃ ┣ 📜imgAbout2.png
- ┃ ┣ 📜react.svg
- ┃ ┣ 📜teste.png
- ┃ ┣ 📜user.png
- ┃ ┗ 📜ZKZg.gif
  ┣ 📂components
  ┃ ┣ 📂AboutSection
- ┃ ┃ ┣ 📜About.tsx
- ┃ ┃ ┗ 📜styleAbout.css
  ┃ ┣ 📂BestSection
- ┃ ┃ ┣ 📜Best.tsx
- ┃ ┃ ┗ 📜styleBest.css
  ┃ ┣ 📂Card
- ┃ ┃ ┣ 📜Card.tsx
- ┃ ┃ ┗ 📜styleCard.css
  ┃ ┣ 📂ChangePass
- ┃ ┃ ┣ 📜ChangePass.tsx
- ┃ ┃ ┗ 📜styleChangePass.css
  ┃ ┣ 📂Comments
- ┃ ┃ ┣ 📜CommentPost.tsx
- ┃ ┃ ┣ 📜mathReview.ts
- ┃ ┃ ┗ 📜styleCommentPost.css
  ┃ ┣ 📂DeleteModal
- ┃ ┃ ┗ 📜DeleteModal.tsx
  ┃ ┣ 📂EditPost
- ┃ ┃ ┗ 📜EditPost.tsx
  ┃ ┣ 📂EditProfile
- ┃ ┃ ┣ 📜EditProfile.tsx
- ┃ ┃ ┗ 📜styleEditProfile.css
  ┃ ┣ 📂Footer
- ┃ ┃ ┣ 📜Footer.tsx
- ┃ ┃ ┗ 📜styleFooter.css
  ┃ ┣ 📂Header
- ┃ ┃ ┣ 📜Header.tsx
- ┃ ┃ ┗ 📜styleHeader.css
  ┃ ┣ 📂HomeSection
- ┃ ┃ ┣ 📜Home.tsx
- ┃ ┃ ┗ 📜styleHome.css
  ┃ ┣ 📂Modal
- ┃ ┃ ┣ 📜Modal.tsx
- ┃ ┃ ┗ 📜styleModal.css
  ┃ ┣ 📂NewPost
- ┃ ┃ ┣ 📜Post.tsx
- ┃ ┃ ┗ 📜stylePost.css
  ┃ ┣ 📂PlacesUser
- ┃ ┃ ┗ 📜PlaceUser.tsx
  ┃ ┣ 📂Posts
- ┃ ┃ ┣ 📜Posts.tsx
- ┃ ┃ ┗ 📜stylePosts.css
  ┃ ┣ 📂PrivateRoute
- ┃ ┃ ┗ 📜PrivateRoute.tsx
  ┃ ┣ 📂ProfileSection
- ┃ ┃ ┣ 📜Profile.tsx
- ┃ ┃ ┗ 📜styleProfile.css
  ┃ ┣ 📂RedfinePass
- ┃ ┃ ┗ 📜RedefinePass.tsx
  ┃ ┣ 📂RegisterSection
- ┃ ┃ ┣ 📜Register.tsx
- ┃ ┃ ┗ 📜styleRegister.css
  ┃ ┣ 📂Send
- ┃ ┃ ┣ 📜Send.tsx
- ┃ ┃ ┗ 📜styleSend.css
  ┃ ┣ 📂Shared
  ┃ ┃ ┣ 📂Hooks
- ┃ ┃ ┃ ┣ 📜useFetchPlaces.tsx
- ┃ ┃ ┃ ┗ 📜useMediaQuery.tsx
  ┃ ┃ ┣ 📂Select
- ┃ ┃ ┃ ┣ 📜Select.tsx
- ┃ ┃ ┃ ┗ 📜styleSelect.css
  ┃ ┃ ┣ 📂Skeleton
- ┃ ┃ ┃ ┣ 📜CardSkeleton.tsx
- ┃ ┃ ┃ ┗ 📜styleCardSkeleton.css
  ┃ ┃ ┗ 📂Tags
- ┃ ┃ ┃ ┣ 📜styleTags.css
- ┃ ┃ ┃ ┗ 📜Tags.tsx
  ┃ ┣ 📂ShowPost
- ┃ ┃ ┣ 📜ShowPost.tsx
- ┃ ┃ ┗ 📜styleShowPost.css
  ┃ ┣ 📂Toast
- ┃ ┃ ┣ 📜styleToast.module.css
- ┃ ┃ ┗ 📜Toast.tsx
  ┃ ┣ 📂VerificationField
- ┃ ┃ ┣ 📜styleVerification.css
- ┃ ┃ ┗ 📜VerificationField.tsx
  ┃ ┗ 📂VerificationRoute
- ┃ ┃ ┗ 📜VerificationRoute.tsx
  ┣ 📂context
- ┃ ┗ 📜auth.tsx
  ┣ 📂interfaces
- ┃ ┣ 📜comment.ts
- ┃ ┣ 📜loginuser.ts
- ┃ ┣ 📜place.ts
- ┃ ┣ 📜register.ts
- ┃ ┗ 📜stars.ts
  ┣ 📂pages
  ┃ ┣ 📂ChangePass
- ┃ ┃ ┗ 📜index.tsx
  ┃ ┣ 📂CreatePost
- ┃ ┃ ┗ 📜index.tsx
  ┃ ┣ 📂EditPost
- ┃ ┃ ┗ 📜index.tsx
  ┃ ┣ 📂EditProfile
- ┃ ┃ ┗ 📜index.tsx
  ┃ ┣ 📂Home
- ┃ ┃ ┗ 📜index.tsx
  ┃ ┣ 📂Posts
- ┃ ┃ ┗ 📜index.tsx
  ┃ ┣ 📂Profile
- ┃ ┃ ┗ 📜index.tsx
  ┃ ┣ 📂RedefinePass
- ┃ ┃ ┗ 📜index.tsx
  ┃ ┣ 📂Register
- ┃ ┃ ┗ 📜index.tsx
  ┃ ┣ 📂Send
- ┃ ┃ ┗ 📜index.tsx
  ┃ ┣ 📂ShowPost
- ┃ ┃ ┗ 📜index.tsx
  ┃ ┗ 📂Verification
- ┃ ┃ ┗ 📜index.tsx
  ┣ 📂services
- ┃ ┣ 📜api.ts
- ┃ ┣ 📜calcDate.ts
- ┃ ┗ 📜states.ts
- ┣ 📜App.css
  ┣ 📜App.tsx
- ┣ 📜index.css
- ┣ 📜main.tsx
- ┗ 📜vite-env.d.ts
 ```
-
-## Funcionalidades
-
-- Cadastro de conta
-- Editar foto de perfil
-- Criação de postagens
-- Visualização de imagens
-- Comentários
-- Avaliar comentário
-- Avaliar postagem
-- Busca por postagens
 
 ## Passo a passo
 
@@ -220,19 +135,6 @@ Certas funcionalidades necessitam que o usuário esteja logado para poder realiz
 ## Aprendizados
 
 Durante o projeto aprendi bastante sobre React, uma biblioteca que já utilizava, porém foi o primeiro projeto grande que fiz usando esta ferramenta. A parte de roteamento com o React Router foi algo que agregou bastante, pois surgiu uma nova versão deste framework e precisei aprender algumas novas funcionalidades. Um ponto que tive atenção foi separar os componentes, pois como era um projeto maior do que eu estava acostumado a fazer e razão disso sabia que caso não tivesse essa separação por componentes o projeto poderia ficar bagunçado.
-
-
-## Melhorias
-
-O projeto ainda pode melhorar bastante, por isso ainda vou realizar certas atualizações como:
-
-- [ ] Refatorações
-
-- [ ] Testes
-
-- [ ] Arquitetura
-
-Durante o projeto fui aprendendo sobre alguns tópicos que são interessantes para manter uma boa perfomance e agora vou poder focar neles.
 
 
 ## Feedback

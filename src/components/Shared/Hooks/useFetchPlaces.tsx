@@ -27,7 +27,6 @@ export default function useFetchPlaces(route: string, page: number, limit: numbe
                     signal: cancel.signal
                 });
 
-                console.log("melhor", data)
                 setPlaces(prev => [...prev, ...data])
 
                 if (data.length > 0) {
