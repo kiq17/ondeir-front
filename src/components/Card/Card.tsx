@@ -76,10 +76,10 @@ const Card = ({
             const starsComplete = Math.ceil(estrelas.media);
 
             if (starsComplete > i) {
-              return <StarIcon className={`w-5 h-5 text-yellow-400`} />;
+              return <StarIcon key={crypto.randomUUID()} className={`w-5 h-5 text-yellow-400`} />;
             }
 
-            return <StarIcon className={`w-5 h-5 text-zinc-400`} />;
+            return <StarIcon key={crypto.randomUUID()} className={`w-5 h-5 text-zinc-400`} />;
           })}
       </div>
       <div className="flex justify-between items-center">

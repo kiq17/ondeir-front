@@ -11,14 +11,11 @@ const Best = () => {
   const slider = useRef<HTMLDivElement>(null);
 
   const fetchPlaces = async () => {
-    // setLoading(true);
     try {
-      const response = await getAllPlaces(1, 5, "melhor");
-      setPlaces(response.data.slice(0, 4));
-      // setLoading(false);
-      console.log(response.data);
+      const response = await getAllPlaces(1, 4, "melhor");
+      setPlaces(response.data);
     } catch (error) {
-      // setLoading(false);
+      /*  */
     }
   };
 
@@ -31,7 +28,7 @@ const Best = () => {
   }, []);
 
   return (
-    <section className="h-full conteiner">
+    <section data-testid="best-section" className="h-full conteiner">
       <h3 className="text-gr text-lg font-bold">Mais Avaliados</h3>
       <p className="text-3xl mb-3 font-bold max-sm:text-xl">
         Melhores lugares do mundo.
@@ -42,45 +39,47 @@ const Best = () => {
         whileTap={{ cursor: "grabbing" }}
       >
         <motion.div
+          data-testid="best-slider"
           drag="x"
           dragConstraints={{ right: 0, left: -width }}
           className="flex w-full gap-4"
         >
-          {places.length > 0 ? (
-            places.map((place) => {
-              return (
-                <motion.div className="w-96" key={crypto.randomUUID()}>
-                  <Card
-                    descricao={place.descricao}
-                    imagem={place.imageFile[0]}
-                    alt={"Imagem do card"}
-                    data={place.createdAt}
-                    criador={place.criadoPor.nome}
-                    nomePost={place.titulo}
-                    estrelas={place.estrelas}
-                    tags={place.tags}
-                    id={place._id}
-                    userId={place.criadoPor._id}
-                  />
-                </motion.div>
-              );
-            })
-          ) : (
-            <>
-              <motion.div className="w-96">
-                <CardSkeleton />
-              </motion.div>
-              <motion.div className="w-96">
-                <CardSkeleton />
-              </motion.div>
-              <motion.div className="w-96">
-                <CardSkeleton />
-              </motion.div>
-              <motion.div className="w-96">
-                <CardSkeleton />
-              </motion.div>
-            </>
-          )}
+          {places.length > 0
+            ? places.map((place) => {
+                return (
+                  <motion.div
+                    data-testid="card-slider"
+                    className="w-96"
+                    key={crypto.randomUUID()}
+                  >
+                    <Card
+                      descricao={place.descricao}
+                      imagem={place.imageFile[0]}
+                      alt={"Imagem do card"}
+                      data={place.createdAt}
+                      criador={place.criadoPor.nome}
+                      nomePost={place.titulo}
+                      estrelas={place.estrelas}
+                      tags={place.tags}
+                      id={place._id}
+                      userId={place.criadoPor._id}
+                    />
+                  </motion.div>
+                );
+              })
+            : Array(4)
+                .fill("")
+                .map((_, i) => {
+                  return (
+                    <motion.div
+                      key={i}
+                      data-testid="skeleton-slider"
+                      className="w-96"
+                    >
+                      <CardSkeleton />
+                    </motion.div>
+                  );
+                })}
         </motion.div>
       </motion.div>
     </section>
