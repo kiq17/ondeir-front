@@ -18,17 +18,18 @@ Esta aplicação está utilizando serviços gratuitos e por conta disto o carreg
 
 ## Progresso
 
-Desde o inicio do projeto alterações estão sendo implementadas com o intuito de aprimorar e atualizar a aplicação.
+Desde o início do projeto alterações estão sendo implementadas com o intuito de aprimorar e atualizar a aplicação.
 
 - JavaScript -> TypeScript
 - CSS -> Tailwind
 - Arquitetura Limpa (Em andamento)
 - Teste automatizados (Em andamento)
-- Novo Desgin (Em andamento)
+- Novo Desgin (Atualização futura)
+- Autenticação dois fatores (Atualização futura)
 
 ## Funcionalidades
 
-- Cadastro de conta com verificação por e-amil
+- Cadastro de conta com verificação por e-mail
 - Editar dados da conta
 - Criação e editar de postagens
 - Visualização de imagens
