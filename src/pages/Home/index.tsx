@@ -4,6 +4,7 @@ import Best from "../../components/BestSection/Best";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import Home from "../../components/HomeSection/Home";
+import DisclaimerBar from "../../components/DisclaimerBar/DisclaimerBar";
 
 const HomePage = () => {
 
@@ -30,6 +31,7 @@ const HomePage = () => {
             <About />
             <Best />
             <Footer />
+            <DisclaimerBar/>
         </>
     )
 }

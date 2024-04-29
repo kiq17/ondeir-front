@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import VerificationField from "../../components/VerificationField/VerificationField";
 import { checkCode, checkTemp, resendEmail } from "../../services/api";
+import { safeEmail } from "../../services/safeEmail";
 
 const VerficationPage = () => {
   const [otp, setOtp] = useState<string[]>([]);
@@ -77,7 +78,7 @@ const VerficationPage = () => {
         } */
 
     try {
-      if (location.state === "redefine") {
+      if (location.state.redefine) {
         const { data } = await checkCode({ otp: otpString });
         navigate(`/redefinir/${data.user}`);
         return;
@@ -111,7 +112,7 @@ const VerficationPage = () => {
         <h1 className="font-bold text-3xl text-gr text-center">OndeIr</h1>
         <h3 className="text-center font-normal text-lg">
           Digite o código que foi enviado para o email{" "}
-          <span className="font-bold">*****as@gmail.com</span>
+          <span className="font-bold">{safeEmail(location.state.email)}</span>
         </h3>
         <VerificationField handleOtp={(value) => setOtp(value)} />
         {error && <p className="self-end m-auto text-red-500">{error}</p>}

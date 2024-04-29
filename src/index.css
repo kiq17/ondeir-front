@@ -110,7 +110,6 @@ input[type=number] {
   }
 
   .menu-lista ul li a {
-    color: black;
     transition: .3s;
   }
 

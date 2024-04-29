@@ -1,3 +1,4 @@
+import DisclaimerBar from "../../components/DisclaimerBar/DisclaimerBar";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import Posts from "../../components/Posts/Posts";
@@ -17,6 +18,7 @@ const PostsPage = () => {
             <Header links={linksObj} />
             <Posts />
             <Footer />
+            <DisclaimerBar/>
         </>
     )
 }
