@@ -86,7 +86,7 @@ const Modal = ({ visible, setVisible }) => {
         }}
         className={visible ? "conteiner-modal" : "h-screen fixed top-0 left-0 hidden justify-center items-center w-full z-[1000] bg-black bg-opacity-50 animate-fundo"}
       >
-        <div className="modal">
+        <div className="modal max-sm:w-80">
           <button className="absolute text-2xl cursor-pointer bg-transparent top-3 right-6 text-zinc-400 hover:bg-zinc-100 transition-colors duration-300 rounded-full" onClick={() => setVisible(false)}>
             <XMarkIcon className="w-8 h-8"/>
           </button>
@@ -106,7 +106,7 @@ const Modal = ({ visible, setVisible }) => {
               name={"email"}
               className={`${
                 errors["email"] ? "border-red-500" : "border-zinc-400"
-              } mb-8`}
+              } mb-8 max-sm:w-64`}
             >
               <Input.Label htmlFor={"email"}>Email</Input.Label>
               <Input.Error
@@ -132,7 +132,7 @@ const Modal = ({ visible, setVisible }) => {
               name={"senha"}
               className={`${
                 errors["password"] ? "border-red-500" : "border-zinc-400"
-              } mb-8`}
+              } mb-8 max-sm:w-64`}
             >
               <Input.Label htmlFor={"senha"}>Senha</Input.Label>
               <Input.Error
