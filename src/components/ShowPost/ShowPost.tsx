@@ -1,9 +1,7 @@
 import {
-  faArrowLeft,
-  faArrowRight,
   faPen,
   faStar,
-  faXmark,
+  faXmark
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext, useEffect, useState } from "react";
@@ -14,13 +12,13 @@ import { Stars } from "../../interfaces/stars";
 import { deletePlace, getPlace, sendStars } from "../../services/api";
 import "../ShowPost/styleShowPost.css";
 
+import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/solid";
 import { AxiosError } from "axios";
 import Lightbox from "react-spring-lightbox";
-import Modal from "../Modal/Modal";
 import { howMuchPass } from "../../services/calcDate";
-import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/solid";
+import Modal from "../Modal/Modal";
 
-// import plugins if you need
+
 
 interface DocumentEx extends Element {
   webkitRequestFullscreen: any;
@@ -254,10 +252,20 @@ const ShowPost = ({ params, starChange }: PsotProps) => {
               </div>
             )}
             renderPrevButton={({ canPrev }) => (
-                <ArrowLeftIcon className={`ml-5 w-8 h-8 z-50 ${canPrev ? "cursor-pointer" : "cursor-not-allowed"} ${canPrev ? "black" : "text-zinc-400"}`} onClick={gotoPrevious} />
+              <ArrowLeftIcon
+                className={`ml-5 w-8 h-8 z-50 ${
+                  canPrev ? "cursor-pointer" : "cursor-not-allowed"
+                } ${canPrev ? "black" : "text-zinc-400"}`}
+                onClick={gotoPrevious}
+              />
             )}
             renderNextButton={({ canNext }) => (
-                <ArrowRightIcon className={`mr-5 w-8 h-8 z-50 ${canNext ? "cursor-pointer" : "cursor-not-allowed"} ${canNext ? "black" : "text-zinc-400"}`} onClick={gotoNext}/>
+              <ArrowRightIcon
+                className={`mr-5 w-8 h-8 z-50 ${
+                  canNext ? "cursor-pointer" : "cursor-not-allowed"
+                } ${canNext ? "black" : "text-zinc-400"}`}
+                onClick={gotoNext}
+              />
             )}
             style={{ background: "grey" }}
             singleClickToZoom
@@ -327,7 +335,10 @@ const ShowPost = ({ params, starChange }: PsotProps) => {
             ) : (
               <p className="text-zinc-400">
                 Criado por
-                <Link className="underline mx-1" to={`/perfil/${place?.criadoPor._id}`}>
+                <Link
+                  className="underline mx-1"
+                  to={`/perfil/${place?.criadoPor._id}`}
+                >
                   {place?.criadoPor.nome}
                 </Link>
                 {place ? howMuchPass(place.createdAt) : ""}
