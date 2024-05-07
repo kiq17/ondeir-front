@@ -1,49 +1,47 @@
+import {
+  ExclamationCircleIcon,
+  EyeIcon,
+  EyeSlashIcon,
+} from "@heroicons/react/20/solid";
 import { AxiosError } from "axios";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { ValidationError } from "yup";
 import bannerCadastro from "../../assets/bannerCadastro.jpg";
-import { ErrorRegister, Register } from "../../interfaces/register";
+import { Register as IRegister } from "../../interfaces/register";
 import { registerReq } from "../../services/api";
-import estados from "../../services/states";
+import states from "../../services/states";
+import { Input } from "../Input";
 import "../RegisterSection/styleRegister.css";
 import useMediaQuery from "../Shared/Hooks/useMediaQuery";
-import { Input } from "../Input";
-import {
-  ExclamationCircleIcon,
-  EyeIcon,
-  EyeSlashIcon,
-} from "@heroicons/react/20/solid";
 
 const userSchema = yup.object({
-  nome: yup
+  name: yup
     .string()
     .required("Campo obrigatório")
     .min(3, "Deve ter no mínimo 3 caracteres")
     .max(20, "Deve ter no mínimo 20 caracteres"),
-  senha: yup
+  password: yup
     .string()
     .required("Campo obrigatório")
     .min(6, "Deve ter no mínimo 6 caracteres")
     .max(20, "Deve ter no mínimo 20 caracteres"),
   email: yup.string().required("Campo obrigatório").email("Email inválido"),
-  estado: yup.string().required("Campo obrigatório"),
+  state: yup.string().required("Campo obrigatório"),
 });
 
 const Register = () => {
-  const [formValue, setFormValue] = useState<Register>({
-    nome: "",
-    senha: "",
+  const [formValue, setFormValue] = useState<IRegister>({
+    name: "",
+    password: "",
     email: "",
-    estado: "",
+    state: "",
   });
-  let { nome, senha, email, estado } = formValue;
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [errorMsg, setErrorMsg] = useState(false);
-  const [errorReq, setErrorReq] = useState<ErrorRegister>();
   const [loading, setLoading] = useState(false);
-  const [estadosMatch, setEstadosMatch] = useState<string[]>([]);
+  const [statesMatch, setstatesMatch] = useState<string[]>([]);
   const [loadingImg, setLoadingImg] = useState<boolean>(true);
   const imgRef = useRef<HTMLImageElement>(null);
   const isMed = useMediaQuery("(min-width: 1250px)");
@@ -51,10 +49,7 @@ const Register = () => {
 
   const validateSchema = () => {
     try {
-      userSchema.validateSync(
-        { nome, senha, email, estado },
-        { abortEarly: false }
-      );
+      userSchema.validateSync({ ...formValue }, { abortEarly: false });
     } catch (error) {
       const yupError = error as ValidationError;
       const objectErros: Record<string, string> = {};
@@ -89,33 +84,35 @@ const Register = () => {
       setLoading(true);
       const { data } = await registerReq(formValue);
       setLoading(false);
-      navigate(`/verificacao/${data.tempLink}`);
+      navigate(`/verificacao/${data.tempLink}`, {
+        state: { email: formValue.email },
+      });
     } catch (error) {
+      console.log(error);
       if (error instanceof AxiosError) {
         const { message } = error!.response!.data;
-        setErrors({email: message["emailExist"]})
+        setErrors({ email: message["emailExist"] });
       }
       setLoading(false);
     }
   };
 
   const newValue = (e) => {
-    estado = e.target.textContent;
-    setFormValue({ ...formValue, estado });
-    setEstadosMatch([]);
+    setFormValue({ ...formValue, state: e.target.textContent });
+    setstatesMatch([]);
   };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    if (name === "estado") {
+    if (name === "state") {
       if (value) {
-        const arrayFilter = estados.filter((estado) => {
+        const arrayFilter = states.filter((state) => {
           const regEx = new RegExp(`${value}`, "gi");
-          return estado.match(regEx);
+          return state.match(regEx);
         });
-        setEstadosMatch(arrayFilter);
+        setstatesMatch(arrayFilter);
       } else {
-        setEstadosMatch([]);
+        setstatesMatch([]);
       }
     }
     setErrorMsg(false);
@@ -124,9 +121,15 @@ const Register = () => {
 
   return (
     <section className="cadastro-box conteiner">
-      <div className="flex rounded-lg shadow-2xl">
+      <div className="flex rounded-lg shadow-2xl max-sm:w-80 max-sm:m-auto max-sm:shadow-none">
         {isMed && (
-          <div className={loadingImg ? "bg-[url('src/assets/compressed/cadastroCompressesd.jpg')] w-[700px] h-[400px] bg-cover bg-center group transition-all duration-400 load" : "bg-[url('src/assets/compressed/cadastroCompressesd.jpg')] w-[700px] h-[400px] bg-cover bg-center group transition-all duration-400"}>
+          <div
+            className={
+              loadingImg
+                ? "bg-[url('src/assets/compressed/cadastroCompressesd.jpg')] w-[700px] h-[400px] bg-cover bg-center group transition-all duration-400 load"
+                : "bg-[url('src/assets/compressed/cadastroCompressesd.jpg')] w-[700px] h-[400px] bg-cover bg-center group transition-all duration-400"
+            }
+          >
             <img
               src={bannerCadastro}
               className="w-full h-full object-center object-cover group-[.load]:invisible"
@@ -139,13 +142,16 @@ const Register = () => {
             />
           </div>
         )}
-        <div className="bg-white flex flex-col items-center gap-5 py-1 px-6">
+        <div className="bg-white flex flex-col items-center gap-5 py-1 px-6 w-full">
           <div className="text-center mb-3">
             <h3 className="font-bold text-3xl mt-3">Explore o mundo</h3>
             <p className="text-zinc-500">Preencha os dados abaixo</p>
           </div>
-          <form onSubmit={handleSubmit} className="flex flex-wrap items-center gap-5 w-[450px]">
-            {["nome", "email"].map((item, i) => {
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-wrap items-center gap-5 w-[450px] max-sm:w-80"
+          >
+            {["name", "email"].map((item, i) => {
               return (
                 <Input.Root
                   key={i}
@@ -162,7 +168,7 @@ const Register = () => {
                   name={item}
                   className={`${
                     errors[item] ? "border-red-500" : "border-zinc-400"
-                  } mb-9 w-52`}
+                  } mb-9 w-52 max-sm:m-auto max-sm:mb-10`}
                 >
                   <Input.Label htmlFor={item}>
                     {item[0].toUpperCase() + item.slice(1)}
@@ -180,9 +186,9 @@ const Register = () => {
 
             <div
               className={
-                errorMsg || errors.estado
-                  ? "box-input relative w-52 transition-all h-14 rounded-md cursor-text border-2 border-red-500 mb-9"
-                  : "box-input relative w-52 transition-all h-14 rounded-md cursor-text border-2 border-zinc-500 mb-9"
+                errorMsg || errors.state
+                  ? "box-input relative w-52 transition-all h-14 rounded-md cursor-text border-2 border-red-500 mb-9 max-sm:m-auto max-sm:mb-10"
+                  : "box-input relative w-52 transition-all h-14 rounded-md cursor-text border-2 border-zinc-500 mb-9 max-sm:m-auto max-sm:mb-10"
               }
               onClick={(e) => {
                 e.stopPropagation();
@@ -193,21 +199,28 @@ const Register = () => {
             >
               <input
                 type="text"
-                name="estado"
+                name="state"
                 autoComplete="off"
                 className="w-full relative top-5 peer outline-none border-none p-2 h-7 placeholder-transparent text-zinc-700 bg-transparent"
                 placeholder=" "
                 onClick={(e) => e.stopPropagation()}
-                value={estado}
+                value={formValue.state}
                 onChange={handleInputChange}
               />
-              <label htmlFor="estado" className="transition-all relative bottom-7 left-2 peer-focus:text-emerald-600 text-sm text-zinc-500 pointer-events-none peer-focus:bottom-7 peer-focus:text-sm peer-placeholder-shown:bottom-3 peer-placeholder-shown:text-base">
+              <label
+                htmlFor="state"
+                className="transition-all relative bottom-7 left-2 peer-focus:text-emerald-600 text-sm text-zinc-500 pointer-events-none peer-focus:bottom-7 peer-focus:text-sm peer-placeholder-shown:bottom-3 peer-placeholder-shown:text-base"
+              >
                 Estado
               </label>
-              {estadosMatch.length ? (
+              {statesMatch.length ? (
                 <ul className="bg-white h-48 w-52 overflow-scroll overflow-x-hidden absolute z-[1000] top-14">
-                  {estadosMatch.map((value, index) => (
-                    <li key={index} className="cursor-pointer p-2 color text-zinc-700 hover:bg-zinc-200 transition-all duration-300" onClick={newValue}>
+                  {statesMatch.map((value, index) => (
+                    <li
+                      key={index}
+                      className="cursor-pointer p-2 color text-zinc-700 hover:bg-zinc-200 transition-all duration-300"
+                      onClick={newValue}
+                    >
                       {value}
                     </li>
                   ))}
@@ -215,39 +228,39 @@ const Register = () => {
               ) : (
                 ""
               )}
-              {errors.estado && (
+              {errors.state && (
                 <p
                   className={
                     "text-red-500 text-sm absolute animate-errorAni left-2 flex gap-2"
                   }
                 >
                   <ExclamationCircleIcon className="h-5 w-5" />
-                  {errors.estado}
+                  {errors.state}
                 </p>
               )}
             </div>
             <Input.Root
               handleOnChange={(value) => {
-                setFormValue((prev) => ({ ...prev, senha: value }));
+                setFormValue((prev) => ({ ...prev, password: value }));
               }}
               onBlur={() => {
                 if (validateSchema()) return;
 
                 setErrors({});
               }}
-              value={formValue.senha}
+              value={formValue.password}
               type={toggle}
-              name={"senha"}
+              name={"password"}
               className={`${
-                errors["senha"] ? "border-red-500" : "border-zinc-400"
-              } mb-9 w-52`}
+                errors["password"] ? "border-red-500" : "border-zinc-400"
+              } mb-9 w-52 max-sm:m-auto max-sm:mb-12`}
             >
-              <Input.Label htmlFor={"senha"}>Senha</Input.Label>
+              <Input.Label htmlFor={"password"}>Senha</Input.Label>
               <Input.Error
                 stantard="Atenção ao digitar"
                 state={{
-                  value: formValue.senha,
-                  error: errors["senha"],
+                  value: formValue.password,
+                  error: errors["password"],
                 }}
               />
               <Input.Icon>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
 
   return (
-    <footer className="max-w-[1200px] m-auto flex justify-between max-sm:max-w-[310px] max-lg:max-w-[900px] py-14">
+    <footer className="max-w-[1200px] m-auto flex justify-between max-sm:max-w-[260px] max-lg:max-w-[900px] py-14">
       <div className="text-3xl text-gr mb-2 font-bold text-center">
         <h3>OndeIr</h3>
       </div>

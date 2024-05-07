@@ -305,7 +305,7 @@ input[type=number] {
 
 @media (max-width: 414px) {
   .conteiner {
-    max-width: 310px;
+    max-width: 260px;
     margin: 0 auto;
     /* background-color: blue; */
   }
