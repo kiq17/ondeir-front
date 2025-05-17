@@ -42,7 +42,9 @@ const Send = () => {
       setLoading(true);
       const { data } = await resend({ email });
       setLoading(false);
-      navigate(`/verificacao/${data.tempLink}`, { state: "redefine" });
+      navigate(`/verificacao/${data.tempLink}`, {
+        state: { redefine: "redefine", email },
+      });
     } catch (error) {
       setErrors({ email: "Esse email não existe" });
       setLoading(false);

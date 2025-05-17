@@ -84,6 +84,7 @@ const Register = () => {
       setLoading(true);
       const { data } = await registerReq(formValue);
       setLoading(false);
+      console.log(data);
       navigate(`/verificacao/${data.tempLink}`, {
         state: { email: formValue.email },
       });
@@ -142,7 +143,7 @@ const Register = () => {
             />
           </div>
         )}
-        <div className="bg-white flex flex-col items-center gap-5 py-1 px-6 w-full">
+        <div className="bg-white flex flex-col items-center gap-5 py-1 px-6 max-sm:w-full">
           <div className="text-center mb-3">
             <h3 className="font-bold text-3xl mt-3">Explore o mundo</h3>
             <p className="text-zinc-500">Preencha os dados abaixo</p>

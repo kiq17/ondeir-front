@@ -1,8 +1,8 @@
 export interface Register {
-    nome: string
-    senha: string
+    name: string
+    password: string
     email: string
-    estado: string
+    state: string
 }
 
 export interface ErrorRegister {

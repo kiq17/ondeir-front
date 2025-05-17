@@ -72,11 +72,6 @@ const VerficationPage = () => {
   const sendOtp = async () => {
     const otpString = otp.join("").replace(",", "");
 
-    /* if (otpString.length < 6) {
-            setError("Código incompleto")
-            return
-        } */
-
     try {
       if (location.state.redefine) {
         const { data } = await checkCode({ otp: otpString });
@@ -94,13 +89,12 @@ const VerficationPage = () => {
 
   if (loading) {
     return (
-      <section className="profile conteiner" key={crypto.randomUUID()}>
+      <section className="profile conteiner">
         <h3 style={{ margin: "0 auto", padding: "200px" }}>Carregando...</h3>
       </section>
     );
   }
 
-  setInterval(() => {}, 1000);
   document.title = "OndeIr | Verificação";
 
   return (
@@ -126,7 +120,7 @@ const VerficationPage = () => {
           </div>
           <p className="text-zinc-600 ml-8">
             Caso você saia desta página por algum motivo realize novamente o seu
-            login para que outra link possa ser gerado.
+            login para que outro link possa ser gerado.
           </p>
         </div>
         <button
