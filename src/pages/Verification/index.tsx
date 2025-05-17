@@ -49,6 +49,7 @@ const VerficationPage = () => {
 
     (async () => {
       await resendEmail(user);
+      sendOtp();
     })();
   };
 
@@ -69,23 +70,23 @@ const VerficationPage = () => {
     return () => clearInterval(interval);
   }, [cliques]);
 
-  // const sendOtp = async () => {
-  //   const otpString = otp.join("").replace(",", "");
+  async function sendOtp() {
+    const otpString = otp.join("").replace(",", "");
 
-  //   try {
-  //     if (location.state.redefine) {
-  //       const { data } = await checkCode({ otp: otpString });
-  //       navigate(`/redefinir/${data.user}`);
-  //       return;
-  //     }
-  //     await checkCode({ otp: otpString });
-  //     navigate(`/`, { state: "active" });
-  //   } catch (error) {
-  //     if (error instanceof AxiosError) {
-  //       setError(error.response?.data.message);
-  //     }
-  //   }
-  // };
+    try {
+      if (location.state.redefine) {
+        const { data } = await checkCode({ otp: otpString });
+        navigate(`/redefinir/${data.user}`);
+        return;
+      }
+      await checkCode({ otp: otpString });
+      navigate(`/`, { state: "active" });
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        setError(error.response?.data.message);
+      }
+    }
+  }
 
   if (loading) {
     return (
